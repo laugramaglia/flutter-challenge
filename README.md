@@ -1,16 +1,11 @@
 # flutter_challange
 
-A new Flutter project.
+## Questions
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. What is Flutter?
+2. Why did you choose Flutter?
+3. What are the Advantages of Flutter?
+  - Cross-platform Development: This feature allows Flutter to write the code once, maintain, and can run on different platforms. It saves the time, effort, and money of the developers.
+  - UI Focused: It has an excellent user interface because it uses a design-centric widget, high-development tools, advanced APIs, and many more features.
+  - Documentation: Flutter has very good documentation support. It is organized and more informative. We can get everything that we want to be written in one place. 
+4. What are the Disadvantages of Flutter?

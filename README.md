@@ -13,3 +13,20 @@
 
 ## Challenge
 
+### To-do
+
+### Must know
+
+- Make UI like design
+    - Use a design tool Figma.
+    - Use consistent fonts, colors, and spacing throughout your UI.
+    - Make sure your UI is responsive and looks good on all devices.
+- Work as a team
+    - Be open to feedback and suggestions from others.
+- Feel free to ask anything
+    - Don't be afraid to ask questions, no matter how small or silly they may seem.
+    - There are no stupid questions, and asking for help is a sign of strength.
+- Work organized
+    - feel free to use any folder structure
+    - Commit your code regularly and push it to a remote repository like GitHub.
+    - Write clear and concise commit messages.

@@ -24,7 +24,7 @@
 - Work as a team
     - Be open to feedback and suggestions from others.
 - Feel free to ask anything
-    - Don't be afraid to ask questions, no matter how small or silly they may seem.
+    - `Don't be afraid to ask questions`, no matter how small or silly they may seem.
     - There are no stupid questions, and asking for help is a sign of strength.
 - Work organized
     - feel free to use any folder structure

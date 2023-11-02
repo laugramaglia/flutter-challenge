@@ -15,6 +15,8 @@
 
 ### To-do
 
+Fetch data from json file and fill components. should handle errors and views states.
+
 ### Must know
 
 - Make UI like design

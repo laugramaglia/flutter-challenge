@@ -1,15 +1,18 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'dart:math';
+
 import 'package:flutter/services.dart';
 
 class Api {
-  static Future<Map<String, dynamic>> getData() async {
+  static Future<String> getData() async {
+    Random random = Random();
+    int number = random.nextInt(2);
     // Load the JSON file from the assets directory
-    String jsonString = await rootBundle.loadString('assets/data.json');
-
-    // Parse the JSON string into a Map
-    Map<String, dynamic> jsonData = json.decode(jsonString);
-    debugPrint(jsonData.toString());
-    return jsonData;
+    return Future.delayed(const Duration(seconds: 2),
+        () async => await rootBundle.loadString(_getDataEndpoint(number)));
   }
+
+  static String _getDataEndpoint(int number) => switch (number) {
+        0 => 'assets/data.json',
+        _ => 'assets/error.json',
+      };
 }

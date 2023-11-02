@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
     bathRooms =
         roomList.where((element) => element.roomType == RoomType.bath).toList();
     super.initState();
-    Api.getData();
   }
 
   @override

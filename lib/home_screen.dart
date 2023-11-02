@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challange/api/api.dart';
 
 import 'constants/app_colors.dart';
 import 'constants/app_list.dart';
@@ -24,10 +25,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     allRooms = roomList;
-    livingRooms = roomList.where((element) => element.roomType == RoomType.living).toList();
-    bedRooms = roomList.where((element) => element.roomType == RoomType.bed).toList();
-    bathRooms = roomList.where((element) => element.roomType == RoomType.bath).toList();
+    livingRooms = roomList
+        .where((element) => element.roomType == RoomType.living)
+        .toList();
+    bedRooms =
+        roomList.where((element) => element.roomType == RoomType.bed).toList();
+    bathRooms =
+        roomList.where((element) => element.roomType == RoomType.bath).toList();
     super.initState();
+    Api.getData();
   }
 
   @override
@@ -66,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: TabBarView(
                   children: [
                     GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisSpacing: 8,
                         mainAxisSpacing: 8,
                         crossAxisCount: 2,
@@ -82,7 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                       ),
                       itemCount: livingRooms.length, // Number of items
@@ -96,7 +104,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                       ),
                       itemCount: bedRooms.length, // Number of items
@@ -110,7 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                       ),
                       itemCount: bathRooms.length, // Number of items

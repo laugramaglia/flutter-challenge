@@ -15,7 +15,9 @@
 
 ### To-do
 
-Fetch data from json file and fill components. should handle errors and views states.
+- Fetch data from json file and fill components. should handle errors and views states.
+- Make any change u think is need it to make it work.
+- Make any change u think it will improbe code quality
 
 ### Must know
 

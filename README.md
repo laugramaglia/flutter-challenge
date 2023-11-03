@@ -20,6 +20,10 @@
 - Make any change u think is need it to make it work.
 - Make any change u think it will improbe code quality
 
+### About the challange
+
+- It is an iot app, it should work this way: a top tab bar with the different rooms and inside each one, the devices.
+
 ### Figma
 
 - https://www.figma.com/file/FwwQOMq3U6hRKZzwp5i07v/iot-challenge?type=design&node-id=0-1&mode=design&t=RCmp1SbaNYauhlX6-0

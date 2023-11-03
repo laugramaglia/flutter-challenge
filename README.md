@@ -20,6 +20,10 @@
 - Make any change u think is need it to make it work.
 - Make any change u think it will improbe code quality
 
+### Figma
+
+- https://www.figma.com/file/FwwQOMq3U6hRKZzwp5i07v/iot-challenge?type=design&node-id=0-1&mode=design&t=RCmp1SbaNYauhlX6-0
+
 ### Must know
 
 - Make UI like design

@@ -24,6 +24,12 @@
 
 - https://www.figma.com/file/FwwQOMq3U6hRKZzwp5i07v/iot-challenge?type=design&node-id=0-1&mode=design&t=RCmp1SbaNYauhlX6-0
 
+### APi
+
+- to call the api: Api.getData()
+- Will return as tring
+- could be an error (will be random)
+
 ### Must know
 
 - Make UI like design

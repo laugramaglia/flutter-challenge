@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import '../../constants/app_colors.dart';
 
 class RoomCard extends StatelessWidget {
-  const RoomCard({super.key, required this.title, required this.subTitle, required this.isActive, required this.icon});
+  const RoomCard(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.isActive,
+      required this.icon});
   final String title;
   final String subTitle;
   final bool isActive;
@@ -23,7 +28,9 @@ class RoomCard extends StatelessWidget {
               width: 32.0,
               height: 32.0,
               decoration: BoxDecoration(
-                color: isActive ? whiteKColor.withOpacity(0.16) : Colors.black.withOpacity(0.16),
+                color: isActive
+                    ? whiteKColor.withOpacity(0.16)
+                    : Colors.black.withOpacity(0.16),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Icon(
@@ -59,3 +66,4 @@ class RoomCard extends StatelessWidget {
     );
   }
 }
+

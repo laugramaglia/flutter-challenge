@@ -10,9 +10,6 @@ class AsyncState<T> {
   ///Error
   const AsyncState.error(AppException error);
 
-  ///Unexpected error
-  const AsyncState.unknownError({required String message});
-
   static Future<AsyncState<T>> guard<T>(
     Future<T> future,
   ) async {
@@ -21,7 +18,8 @@ class AsyncState<T> {
     } on AppException catch (e) {
       return AsyncState.error(e);
     } catch (e) {
-      return AsyncState.unknownError(message: e.toString());
+      return AsyncState.error(
+          AppException(message: e.toString(), code: "unnown error"));
     }
   }
 }

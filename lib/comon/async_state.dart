@@ -1,25 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_challange/services/app_exception.dart';
 
-class AsyncState<T> {
-  ///Loading
-  const AsyncState.loading();
+sealed class AsyncState<T> {
+  Widget map(
+          {required Function() loading,
+          required Function(AppException error) error,
+          required Function(T data) data}) =>
+      switch (this) {
+        LoadingState() => loading.call(),
+        ErrorState(error: var err) => error.call(err),
+        DataState(data: var value) => data.call(value),
+      };
+}
 
-  ///Data
-  const AsyncState.data(T value);
+class LoadingState<T> extends AsyncState<T> {}
 
-  ///Error
-  const AsyncState.error(AppException error);
+class DataState<T> extends AsyncState<T> {
+  final T data;
+  DataState(this.data);
+}
 
-  static Future<AsyncState<T>> guard<T>(
-    Future<T> future,
-  ) async {
-    try {
-      return AsyncState.data(await future);
-    } on AppException catch (e) {
-      return AsyncState.error(e);
-    } catch (e) {
-      return AsyncState.error(
-          AppException(message: e.toString(), code: "unnown error"));
-    }
-  }
+class ErrorState<T> extends AsyncState<T> {
+  final AppException error;
+  ErrorState(this.error);
 }

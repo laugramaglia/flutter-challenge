@@ -7,7 +7,20 @@ class AppTheme {
 
   static ThemeData get themeData {
     /// Create a TextTheme and ColorScheme, that we can use to generate ThemeData
-    TextTheme txtTheme = ThemeData.light().textTheme;
+    TextTheme txtTheme = ThemeData.light().textTheme.copyWith(
+          bodyLarge: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 12.0,
+          ),
+          bodyMedium: const TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize: 120,
+          ),
+          bodySmall: const TextStyle(
+            fontWeight: FontWeight.w200,
+            fontSize: 12.0,
+          ),
+        );
 
     ColorScheme colorScheme = ColorScheme(
       // Decide how you want to apply your own custom them, to the MaterialApp

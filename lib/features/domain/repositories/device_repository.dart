@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_challange/comon/async_state.dart';
 import 'package:flutter_challange/features/data/models/device.dart';
 import 'package:flutter_challange/services/app_exception.dart';
 
@@ -18,18 +17,15 @@ class DeviceRepository {
   FutureDevicesOrError getDevices() async {
     try {
       final Response response = await dio.get('/devices');
-      if (response.statusCode != 200) {
-        return (
-          <Device>[],
-          AppException(
-              message: response.statusMessage ?? '',
-              code: response.statusCode.toString())
-        );
-      }
 
       final List<Device> finalResponse = List<Device>.from(
           response.data['devices'].map((e) => Device.fromJson(e)));
       return (finalResponse, null);
+    } on DioException catch (err) {
+      return (
+        <Device>[],
+        AppException(message: err.message ?? err.type.name, code: err.type.name)
+      );
     } catch (err) {
       return (
         <Device>[],

@@ -13,9 +13,6 @@ import 'package:provider/provider.dart';
 class RoomsView extends StatelessWidget {
   const RoomsView({super.key});
 
-  final List<String> rooms = const ['Livingroom'];
-  final List<Device> devices = const [];
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(body: _RoomState());

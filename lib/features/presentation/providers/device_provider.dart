@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challange/comon/async_state.dart';
 import 'package:flutter_challange/comon/async_state_notifier.dart';
 import 'package:flutter_challange/features/domain/repositories/device_repository.dart';
-import 'package:flutter_challange/services/app_exception.dart';
 
 class DeviceProvider extends AsyncStateNotifier<DevicesList> {
   final DeviceRepository deviceRepository;
@@ -10,11 +10,9 @@ class DeviceProvider extends AsyncStateNotifier<DevicesList> {
       : super(context);
 
   @override
-  Future<DevicesList> build() => _build();
-
-  Future<DevicesList> _build() async {
+  Future<AsyncState<DevicesList>> build() async {
     final (response, error) = await deviceRepository.getDevices();
-    if (error case final error?) throw error;
-    return response;
+    if (error != null) return ErrorState(error);
+    return DataState(response);
   }
 }

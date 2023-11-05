@@ -18,39 +18,25 @@ class RoomsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return const Scaffold(body: _RoomState());
+  }
+}
+
+class _RoomState extends StatelessWidget {
+  const _RoomState();
+
+  @override
+  Widget build(BuildContext context) {
     final state = context.watch<DeviceProvider>().state;
+
     return state.map(
-      error: (err) => Material(child: Center(child: Text(err.message))),
-      loading: () =>
-          const Material(child: Center(child: CupertinoActivityIndicator())),
-      data: (data) => DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          body: Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 0),
-              child: Column(
-                children: [
-                  TabBar(
-                    dividerColor: Colors.transparent,
-                    tabs: <Tab>[
-                      const Tab(text: 'All rooms'),
-                      for (String item in rooms) Tab(text: item),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        Wrap(
-                          children: devices.map((e) => DeviceCard(e)).toList(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
+      error: (err) => Center(child: Text(err.message)),
+      loading: () => const Center(child: CupertinoActivityIndicator()),
+      data: (data) => Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 0),
+          child: Wrap(
+            children: data.map((e) => DeviceCard(e)).toList(),
+          )),
     );
   }
 }

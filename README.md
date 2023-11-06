@@ -16,23 +16,17 @@
 
 ### To-do
 
-- Fetch data from json file and fill components. should handle errors and views states.
-- Make any change u think is need it to make it work.
-- Make any change u think it will improbe code quality
+- Perform work as if it were a real project, demonstrating your proficiency in managing Git and GitHub.
+- Import icons from Figma and integrate them into the project. (clue: save them as font)
+- Design and implement the bottom navigation bar.
+- Develop unit tests to verify the functionality of data fetching from the [DeviceRepository] repository.
+- Optionally, create two Widget tests to ensure the correctness of specific UI components.
 
-### About the challange
-
-- It is an iot app, it should work this way: a top tab bar with the different rooms and inside each one, the devices.
 
 ### Figma
 
 - https://www.figma.com/file/FwwQOMq3U6hRKZzwp5i07v/iot-challenge?type=design&node-id=0-1&mode=design&t=RCmp1SbaNYauhlX6-0
 
-### APi
-
-- to call the api: Api.getData()
-- Will return as tring
-- could be an error (will be random)
 
 ### Must know
 

@@ -17,7 +17,7 @@
 ### To-do
 
 - Perform work as if it were a real project, demonstrating your proficiency in managing Git and GitHub.
-- Import icons from Figma and integrate them into the project. (clue: save them as font)
+- Import icons from Figma and integrate them into the project. (clue: [save them as font](https://www.fluttericon.com/))
 - Design and implement the bottom navigation bar.
 - Develop unit tests to verify the functionality of data fetching from the [DeviceRepository] repository.
 - Optionally, create two Widget tests to ensure the correctness of specific UI components.

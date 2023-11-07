@@ -7,7 +7,7 @@ import 'package:flutter_challange/comon/async_state_notifier.dart';
 import 'package:flutter_challange/features/data/models/device.dart';
 import 'package:flutter_challange/features/domain/repositories/device_repository.dart';
 import 'package:flutter_challange/features/presentation/providers/device_provider.dart';
-import 'package:flutter_challange/features/presentation/ui/widgets/device_card.dart';
+import 'package:flutter_challange/features/presentation/ui/widgets/device_card_small.dart';
 import 'package:provider/provider.dart';
 
 class RoomsView extends StatelessWidget {
@@ -32,7 +32,7 @@ class _RoomState extends StatelessWidget {
       data: (data) => Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 0),
           child: Wrap(
-            children: data.map((e) => DeviceCard(e)).toList(),
+            children: data.map((e) => DeviceCardSmall(e)).toList(),
           )),
     );
   }

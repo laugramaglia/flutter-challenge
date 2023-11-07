@@ -1,17 +1,21 @@
 import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_challange/comon/custom_rect_tween.dart';
+import 'package:flutter_challange/comon/hero_dialog_route.dart';
 import 'package:flutter_challange/features/data/models/device.dart';
+import 'package:flutter_challange/features/presentation/ui/widgets/device_box.dart';
+import 'package:flutter_challange/features/presentation/ui/widgets/device_card_big.dart';
 
-class DeviceCard extends StatefulWidget {
+class DeviceCardSmall extends StatefulWidget {
   final Device device;
-  const DeviceCard(this.device, {super.key});
+  const DeviceCardSmall(this.device, {super.key});
 
   @override
-  State<DeviceCard> createState() => _DeviceCardState();
+  State<DeviceCardSmall> createState() => _DeviceCardSmallState();
 }
 
-class _DeviceCardState extends State<DeviceCard> {
+class _DeviceCardSmallState extends State<DeviceCardSmall> {
   bool isActive = false;
 
   void _onTap() => setState(() {
@@ -23,14 +27,18 @@ class _DeviceCardState extends State<DeviceCard> {
     return InkWell(
       borderRadius: BorderRadius.circular(16),
       onTap: _onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+      onLongPress: () {
+        Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+          return DeviceCardBig(
+            heroTag: widget.device.id,
+            isActive: isActive,
+          );
+        }));
+      },
+      child: DeviceBox(
+        isActive: isActive,
+        heroTag: widget.device.id,
         width: 144,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: isActive ? Theme.of(context).primaryColor : Colors.white,
-          borderRadius: BorderRadius.circular(16),
-        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

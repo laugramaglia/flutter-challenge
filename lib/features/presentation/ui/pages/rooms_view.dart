@@ -10,12 +10,20 @@ import 'package:flutter_challange/features/presentation/providers/device_provide
 import 'package:flutter_challange/features/presentation/ui/widgets/device_card_small.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/bottom_navigation.dart';
+
 class RoomsView extends StatelessWidget {
   const RoomsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: _RoomState());
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Challenge App'),
+        ),
+        body: _RoomState(),
+        bottomNavigationBar: BottomNavigationBarWidget(initialIndex: 0),
+    );
   }
 }
 

@@ -16,6 +16,8 @@ dependencies:
   dio: ^5.3.3
 # State manage
   provider: ^6.0.5
+# to load svg, don't have time to investigate further
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -25,5 +27,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
+
+  assets:
+      - assets/icons/
 

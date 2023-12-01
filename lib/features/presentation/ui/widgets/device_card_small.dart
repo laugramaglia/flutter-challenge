@@ -39,35 +39,38 @@ class _DeviceCardSmallState extends State<DeviceCardSmall> {
         isActive: isActive,
         heroTag: widget.device.id,
         width: 144,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CircleAvatar(
-              radius: 12,
-              backgroundColor: Colors.grey[200],
-              child: Transform.rotate(
-                  angle: -pi / 2,
-                  child: FittedBox(
-                    child: Padding(
-                      padding: const EdgeInsets.all(2),
-                      child: Switch.adaptive(
-                        value: isActive,
-                        onChanged: (_) => _onTap(),
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveTrackColor: Colors.grey,
+        child: SizedBox(
+          height: 100,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircleAvatar(
+                radius: 12,
+                backgroundColor: Colors.grey[200],
+                child: Transform.rotate(
+                    angle: -pi / 2,
+                    child: FittedBox(
+                      child: Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: Switch.adaptive(
+                          value: isActive,
+                          onChanged: (_) => _onTap(),
+                          activeColor: Theme.of(context).colorScheme.primary,
+                          inactiveTrackColor: Colors.grey,
+                        ),
                       ),
-                    ),
-                  )),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              widget.device.name,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(color: isActive ? Colors.white : Colors.black87),
-            ),
-          ],
+                    )),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                widget.device.name,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(color: isActive ? Colors.white : Colors.black87),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challange/config/theme/constants/colors.dart';
 import 'package:flutter_challange/features/presentation/ui/pages/profile_page.dart';
 import 'package:flutter_challange/features/presentation/ui/pages/rooms_view.dart';
 import 'package:flutter_challange/features/presentation/ui/pages/single_room.dart';
@@ -41,10 +42,11 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         active: currentIndex == 2,
         icon: Icons.person,
         label: 'Profile',
-        page: const ProfileView(),
+        page: ProfileView(),
       ),
     ];
     return Scaffold(
+      backgroundColor: kSreenBgKColor,
       body: SafeArea(
         child: PageView(
           physics: const NeverScrollableScrollPhysics(),
@@ -58,9 +60,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         onTap: (int index) {
           setState(() {
             currentIndex = index;
-            _pageController.animateToPage(currentIndex,
-                duration: const Duration(milliseconds: 150),
-                curve: Curves.easeIn);
+            _pageController.animateToPage(currentIndex, duration: const Duration(milliseconds: 150), curve: Curves.easeIn);
           });
         },
       ),

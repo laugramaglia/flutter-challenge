@@ -20,6 +20,30 @@ class AppTheme {
             fontWeight: FontWeight.w200,
             fontSize: 12.0,
           ),
+          displayMedium: const TextStyle(
+            color: Color(0xFF0F0F0F),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+          displaySmall: const TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+          displayLarge: const TextStyle(
+            color: Color(0xFF0F0F0F),
+            fontSize: 24,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w600,
+          ),
+          titleLarge: const TextStyle(
+            color: Color(0xFF0F0F0F),
+            fontSize: 20,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w600,
+          ),
         );
 
     ColorScheme colorScheme = ColorScheme(
@@ -38,8 +62,7 @@ class AppTheme {
     );
 
     /// Now that we have ColorScheme and TextTheme, we can create the ThemeData
-    var t = ThemeData.from(textTheme: txtTheme, colorScheme: colorScheme)
-        .copyWith(useMaterial3: true);
+    var t = ThemeData.from(textTheme: txtTheme, colorScheme: colorScheme);
 
     /// Return the themeData which MaterialApp can now use
     return t;

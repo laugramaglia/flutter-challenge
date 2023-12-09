@@ -12,11 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-# Http request
+  # Http request
   dio: ^5.3.3
-# State manage
+  # State manage
   provider: ^6.0.5
-
+  flutter_svg: any
 
 dev_dependencies:
   flutter_test:
@@ -28,10 +28,9 @@ flutter:
   uses-material-design: true
 
   assets:
-      - assets/icons/
+    - assets/icons/
 
   fonts:
     - family: AppIcons
       fonts:
         - asset: assets/icons/AppIcons.ttf
-

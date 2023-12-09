@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
   final User? user;
   ProfileView({User? givenUser, super.key})
       : user = givenUser ??
-      // TODO Clean this after linking with BE
+            // TODO Clean this after linking with BE
             User(
               name: 'Ruben Geidt',
               email: 'ruben.geidt@example.com',
@@ -24,12 +24,15 @@ class ProfileView extends StatelessWidget {
       child: Stack(
         children: [
           ProfilePicture(url: user?.pictureUrl),
-          const Positioned(
+          Positioned(
             bottom: 0,
             right: 0,
-            child: CircleAvatar(
-              backgroundColor: kPrimaryLight,
-              child: Icon(Icons.edit, size: 18, color: kWhiteKColor),
+            child: InkWell(
+              onTap: _editProfilePicture,
+              child: const CircleAvatar(
+                backgroundColor: kPrimaryLight,
+                child: Icon(Icons.edit, size: 18, color: kWhiteKColor),
+              ),
             ),
           ),
         ],
@@ -53,19 +56,17 @@ class ProfileView extends StatelessWidget {
             const SizedBox(height: 30),
             ...List.generate(
               ProfileOptions.values.length,
-              (index) {
-                return index == 3
-                    ? Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10, bottom: 20),
-                            child: const Divider(color: kDactivateColor),
-                          ),
-                          _ProfileListTile(onTap: () => _manageAction(ProfileOptions.values[index]), index: index),
-                        ],
-                      )
-                    : _ProfileListTile(onTap: () => _manageAction(ProfileOptions.values[index]), index: index);
-              },
+              (index) => index == 3
+                  ? Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10, bottom: 20),
+                          child: const Divider(color: kDactivateColor),
+                        ),
+                        _ProfileListTile(onTap: () => _manageAction(ProfileOptions.values[index]), index: index),
+                      ],
+                    )
+                  : _ProfileListTile(onTap: () => _manageAction(ProfileOptions.values[index]), index: index),
             ),
           ],
         ),
@@ -74,7 +75,7 @@ class ProfileView extends StatelessWidget {
   }
 
   void _manageAction(ProfileOptions value) {
-    // TODO Add Action
+    // TODO Add tile's actions
     switch (value) {
       case ProfileOptions.details:
         break;
@@ -89,6 +90,10 @@ class ProfileView extends StatelessWidget {
       default:
     }
   }
+
+  void _editProfilePicture() {
+    // TODO Add edit profile picture
+  }
 }
 
 class _ProfileListTile extends StatelessWidget {
@@ -97,32 +102,30 @@ class _ProfileListTile extends StatelessWidget {
   const _ProfileListTile({required this.onTap, required this.index});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 360,
-      height: 65,
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: ShapeDecoration(
-        color: const Color(0xFFF7F7F7),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      child: Center(
-        child: ListTile(
-          onTap: onTap,
-          contentPadding: EdgeInsets.zero,
-          horizontalTitleGap: 16,
-          title: Text(ProfileOptions.values[index].value, style: Theme.of(context).textTheme.displayMedium),
-          leading: CircleAvatar(
-            radius: 25,
-            backgroundColor: kWhiteKColor,
-            child: SvgPicture.asset(ProfileOptions.values[index].icon, width: 22),
-          ),
-          trailing: const Icon(Icons.chevron_right, size: 24),
+  Widget build(BuildContext context) => Container(
+        width: 360,
+        height: 65,
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: ShapeDecoration(
+          color: const Color(0xFFF7F7F7),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
-      ),
-    );
-  }
+        child: Center(
+          child: ListTile(
+            onTap: onTap,
+            contentPadding: EdgeInsets.zero,
+            horizontalTitleGap: 16,
+            title: Text(ProfileOptions.values[index].value, style: Theme.of(context).textTheme.displayMedium),
+            leading: CircleAvatar(
+              radius: 25,
+              backgroundColor: kWhiteKColor,
+              child: SvgPicture.asset(ProfileOptions.values[index].icon, width: 22),
+            ),
+            trailing: const Icon(Icons.chevron_right, size: 24),
+          ),
+        ),
+      );
 }
 
 enum ProfileOptions {
